@@ -6,7 +6,7 @@ The purpose of this tester app is to facilitate testing of React Native librarie
 
 Typically install your library as a Github dependency, because most libraries do not include example code in the published bundle. ```yarn add your-lib@org/package#tag-or-branch```. If your library requires additional steps pre-publish before it would be usable to a consuming app, run those manually.
 
-Each dependency that has an App.js under `node_modules/<package>/example/App.js` will be included as a menu item. Autolinking is used to include the native code in the tester app. The example code is included based on the availability of the App.ts example entry file. Any native modifications to make the library function, such as permissions, need to be added to the tester app.
+Each dependency that has an App.js under `node_modules/<package>/example/App.js` will be included as a menu item. Autolinking is used to include the native code in the tester app. The example code is included based on the availability of the App.js example entry file. Any native modifications to make the library function, such as permissions, need to be added to the tester app.
 
 ### Types
 
@@ -16,10 +16,10 @@ This app assumes the example code has no types and is in plain javascript that w
 
 The main purpose of this tester app is to quickly check if a library works against current and past versions of RN. This library will be upgraded with new RN release candidates coming out and every old version will be tagged, allowing you to set this example app to an older version easily by checking out the older tag.
 
-Your libraries version can be easily controlled by setting the Github dependency to a specific library version tag or branch.
+Your library version can be easily controlled by setting the Github dependency to a specific version tag or branch.
 
 The combination of the two above methods allows you to easily test across the compatibility matrix between React Native and your library.
 
 ## Internals
 
-This app retrieves the example code by checking for the App.js file under example and using a local script to generate the content of the examples list in `exampleList.js`. This steps happens in post install on `yarn` or `npm i`.
+This app retrieves the example code by checking for the App.js file under example and using a local script(`generateExampleList.js`) to generate the content of `exampleList.js`. This steps happens in post install on `yarn` or `npm i`.
